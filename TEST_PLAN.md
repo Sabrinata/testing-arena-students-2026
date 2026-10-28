@@ -47,7 +47,13 @@ Value Error bei
 
 ## `filter_by_temperature(measurements, lower, upper)`
 
-[] Die Grenzen sind: `lower <= temperature <= upper`.
+[x] Die Grenzen sind: `lower <= temperature <= upper`.
+[x] Reihenfolge der Messung bleibt erhalten
+[x] Doppelte Einträge bleiben erhalten
+[x] Ausgabe ist eine Liste
+
+ValueError bei
+[x] lower > upper
 
 
 

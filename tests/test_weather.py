@@ -80,6 +80,43 @@ def test_filter_by_temperature_regular_values():
         ("Düsseldorf", 720, 18.5)
     ]
 
+def test_filter_by_temperature_ValueError():
+    measurements = [
+        ("Köln", 600, 10.0),
+        ("Düsseldorf", 720, 18.5),
+        ("Bonn", 900, 25.0),
+    ]
+
+    with pytest.raises(ValueError, match="lower must not be greater than upper."):
+            filter_by_temperature(measurements, 20.0, 15.0)
+
+def test_filter_by_temperature_Order():
+    measurements = [
+        ("Düsseldorf", 600, 10.0),
+        ("Düsseldorf", 720, 18.5),
+        ("Düsseldorf", 900, 25.0),
+    ]
+
+    assert filter_by_temperature(measurements, 10.0, 25.0) == measurements
+
+def test_filter_by_temperature_List():
+    measurements = [
+        ("Düsseldorf", 600, 10.0),
+    ]
+
+    assert isinstance(filter_by_temperature(measurements, 10.0, 25.0),list) == True
+
+
+def test_filter_by_temperature_Double():
+    measurements = [
+        ("Düsseldorf", 600, 10.0),
+        ("Düsseldorf", 720, 18.5),
+        ("Düsseldorf", 900, 25.0),
+        ("Düsseldorf", 720, 18.5),
+        ("Düsseldorf", 720, 18.5)
+    ]
+
+    assert filter_by_temperature(measurements, 10.0, 25.0) == measurements
 
 def test_average_temperature_regular_values():
     measurements = [
