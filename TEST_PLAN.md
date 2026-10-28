@@ -66,5 +66,13 @@ ValueError bei
 [x] keine Messungen für city enthalten
 
 
+## `hottest_measurement(measurements)`
+
+[x] gibt was zurück, wenn es eine eindeutig höchste Temperatur gibt
+[] bei Doppelter höchsten Temperatur wird die frühere Uhrzeit ausgegeben
+[] bei doppelter höchster Temperatur als auch gleicher Uhrzeit wird das erste Vorkommen genommen
+
+Value Error bei
+[] leerer Sequenz
 
 

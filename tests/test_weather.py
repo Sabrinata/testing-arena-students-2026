@@ -160,3 +160,25 @@ def test_hottest_measurement_with_unique_maximum():
     ]
 
     assert hottest_measurement(measurements) == ("Düsseldorf", 720, 25.0)
+
+def test_hottest_measurement_with_double_maximum():
+    measurements = [
+        ("Köln", 600, 25.0),
+        ("Düsseldorf", 720, 25.0),
+        ("Bonn", 900, 20.0),
+    ]
+    assert hottest_measurement(measurements) == ("Köln", 600, 25.0)
+
+    measurements = [
+            ("Düsseldorf", 600, 25.0),
+            ("Bonn", 900, 20.0),
+            ("Köln", 600, 25.0)
+        ]
+    assert hottest_measurement(measurements) == ("Düsseldorf", 600, 25.0)
+
+
+def test_hottest_measurement_ValueError():
+    measurements = []
+    
+    with pytest.raises(ValueError, match="No measurements available."):
+        hottest_measurement(measurements)
