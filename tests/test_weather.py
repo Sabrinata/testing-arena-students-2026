@@ -126,6 +126,31 @@ def test_average_temperature_regular_values():
 
     assert average_temperature(measurements, "Köln") == 15.0
 
+def test_average_temperature_different_cities():
+    measurements = [
+        ("Köln", 600, 10.0),
+        ("Köln", 720, 20.0),
+        ("Düsseldorf", 720, 18.5)
+    ]
+
+    assert average_temperature(measurements, "Köln") == 15.0
+    assert average_temperature(measurements, "Düsseldorf") == 18.5
+
+def test_average_temperature_case_sensitive():
+    measurements = [
+        ("Köln", 600, 10.0),
+        ("köln", 720, 20.0),
+    ]
+
+    assert average_temperature(measurements, "Köln") == 10.0
+
+def test_average_temperature_ValueError():
+    measurements = [
+        ("Köln", 600, 10.0),
+        ("Köln", 720, 20.0),
+    ]
+    with pytest.raises(ValueError, match="No measurements found for city."):
+        average_temperature(measurements, "köln")
 
 def test_hottest_measurement_with_unique_maximum():
     measurements = [

@@ -55,6 +55,16 @@ Value Error bei
 ValueError bei
 [x] lower > upper
 
+## `average_temperature(measurements, city)`
+
+[x] Nur Measurments mit Stadt = city werden berücksichtigt
+[x] Städtenamen sind case-sensitiv
+[x] Alle passenden Städte sind enthalten
+[x] Eingabedaten werden nicht verändert
+
+ValueError bei
+[x] keine Messungen für city enthalten
+
 
 
 
